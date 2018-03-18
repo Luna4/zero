@@ -1,7 +1,7 @@
-*keywords*
+# keywords
 **webpack + react + redux + express + nedb**
 
-*get started*
+# get started
 
 ```
 yarn install
@@ -9,9 +9,10 @@ yarn install
 npm run start
 
 ```
+open in browser **http://localhost:8081/**
 
-*file structure*
-.
+# file structure
+
 ├── README.md
 ├── db
 │   └── users.db
