@@ -1,0 +1,45 @@
+@import "../../assets/css/ui-elements";
+
+$borderColor: #e4e4e473;
+
+.list-wrap {
+
+  padding: 44px 20px;
+
+  .list-title {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .filter-user {
+    display: flex;
+    padding: 16px 0;
+    .sec-input {
+      margin-right: 12px;
+    }
+    .lable-input {
+      margin-right: 8px;
+    }
+  }
+
+  .table-user-wrap {
+    background-color: #fff;
+    padding: 0 16px;
+    .table-user {
+      width: 100%;
+      border-spacing: 0px;
+      thead {
+        background-color: #cccccc42
+      }
+      th, td {
+        padding: 8px 24px;
+        text-align: left;
+        font-size: 13px;
+      }
+      tr:not(:last-child) {
+        border-bottom: 1px solid $borderColor;
+      }
+    }
+  }
+
+}
