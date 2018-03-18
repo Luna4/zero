@@ -1,22 +1,8 @@
 import path from 'path'
 import webpack from 'webpack'
-// import autoprefixer from 'autoprefixer'
-// import StyleLintPlugin from 'stylelint-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-// const commonChunks = {
-//   vendor: [
-//     'react',
-//     'react-dom',
-//     'react-redux',
-//     'react-router',
-//     'react-router-redux'
-//   ]
-// }
-// const context = path.resolve(__dirname, '..')
-
 const jsOutputDirectory = 'js'
-
 const resolve = {
   modules: ['src', 'node_modules']
 }
@@ -30,16 +16,6 @@ const entry = {
   ]
 }
 const plugins = [
-  // new webpack.LoaderOptionsPlugin({
-  //   options: {
-  //     postcss: [autoprefixer]
-  //   }
-  // }),
-  // new StyleLintPlugin({
-  //   files: '**/*.less',
-  //   syntax: 'less',
-  //   failOnError: false
-  // }),
   new webpack.DefinePlugin({
     __DEVTOOLS__: true
   }),
@@ -113,24 +89,10 @@ const moduleConfig = {
   ]
 }
 
-// if (commonChunks) {
-  // const chunkKeys = Object.keys(commonChunks)
-  //
-  // chunkKeys.forEach((key) => {
-  //   entry[key] = commonChunks[key]
-  // })
-  // plugins.push(
-  //   new webpack.optimize.CommonsChunkPlugin({ names: chunkKeys })
-  // )
-// }
-
 module.exports = {
   mode: 'development',
   devtool: false,
   module: moduleConfig,
-  // resolveLoader: {
-  //   modules: [path.join(__dirname, 'node_modules')]
-  // },
   entry,
   output,
   plugins,
