@@ -25,13 +25,13 @@ router.route('/users')
     }
 
     if (!postData.name) {
-      validationError.message = 'username is required'
+      validationError.message = 'name is required'
     }
     if (!postData.age) {
-      validationError.message = 'password is required'
+      validationError.message = 'age is required'
     }
     if (!postData.gender) {
-      validationError.message = 'email is required'
+      validationError.message = 'gender is required'
     }
 
     if (validationError.message) {

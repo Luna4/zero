@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "APP_ENV=production webpack-dev-server --config=webpack.config.prod.babel.js",
-    "client": "APP_ENV=development webpack-dev-server --config=webpack.config.dev.babel.js",
+    "client": "APP_ENV=development webpack-dev-server --config=webpack.config.babel.js",
     "server": "nodemon server.js --exec babel-node",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },

@@ -17,7 +17,10 @@ const entry = {
 }
 const plugins = [
   new webpack.DefinePlugin({
-    __DEVTOOLS__: true
+    __DEVTOOLS__: true,
+    'process.env': {
+      'APP_ENV': JSON.stringify(process.env.APP_ENV)
+    }
   }),
   new HtmlWebpackPlugin({
     title: 'Home',
@@ -64,6 +67,7 @@ const moduleConfig = {
       use: [
         'style-loader',
         'css-loader',
+        'postcss-loader',
         'sass-loader'
       ]
     },
@@ -91,7 +95,7 @@ const moduleConfig = {
 
 module.exports = {
   mode: 'development',
-  devtool: false,
+  devtool: 'cheap-module-eval-source-map',
   module: moduleConfig,
   entry,
   output,
@@ -110,6 +114,11 @@ module.exports = {
     }
   },
   devServer: {
+    overlay: true,
+    port: 8081,
+    stats: {
+      color: true
+    },
     proxy: {
       '/api/*': {
         target: 'http://localhost:5000/',
