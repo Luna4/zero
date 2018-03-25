@@ -95,7 +95,7 @@ const moduleConfig = {
 
 module.exports = {
   mode: 'development',
-  devtool: false,
+  devtool: 'cheap-module-eval-source-map',
   module: moduleConfig,
   entry,
   output,
@@ -115,6 +115,7 @@ module.exports = {
   },
   devServer: {
     overlay: true,
+    port: 8008,
     stats: {
       color: true
     },

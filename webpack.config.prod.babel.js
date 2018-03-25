@@ -1,6 +1,7 @@
 import path from 'path'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 const jsOutputDirectory = 'js'
 const resolve = {
@@ -22,6 +23,7 @@ const plugins = [
       'APP_ENV': JSON.stringify(process.env.APP_ENV)
     }
   }),
+  new UglifyJSPlugin({ sourceMap: true }),
   new HtmlWebpackPlugin({
     title: 'Home',
     template: './src/index.html',
@@ -94,8 +96,8 @@ const moduleConfig = {
 }
 
 module.exports = {
-  mode: 'development',
-  devtool: false,
+  mode: 'production',
+  devtool: 'source-map',
   module: moduleConfig,
   entry,
   output,
