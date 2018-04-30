@@ -13,11 +13,30 @@ class UserList extends Component {
   componentDidMount () {
     const { recieveUsers } = this.props
     this.fetchUsers().then(data => recieveUsers(data))
+    this.testPromiseChain()
+    .then(data => console.log('then------2'))
+    .catch(res => console.log('err------3', res))
 
-    fetcher(API.FETCH_USERS+'233').then(data => {
+  }
+
+  testPromiseChain () {
+    return fetcher(API.FETCH_USERS)
+    .then(data => {
       console.log(data)
+      return Promise.resolve(0)
     })
-    .catch(err => console.log('err-----', err))
+    .catch(err => {
+      console.log('err-----1')
+      return Promise.resolve(1)
+    })
+    .then(data => {
+      console.log('then-----1')
+      return Promise.reject(11)
+    })
+    .catch(err => {
+      console.log('err-----2')
+      return Promise.reject(2)
+    })
   }
 
   handleFilterChange (event, key) {
