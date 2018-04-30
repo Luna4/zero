@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import fetcher from './helper'
 
 import Loading from 'components/Loading'
 import * as actions from '../../actions'
@@ -12,6 +13,11 @@ class UserList extends Component {
   componentDidMount () {
     const { recieveUsers } = this.props
     this.fetchUsers().then(data => recieveUsers(data))
+
+    fetcher(API.FETCH_USERS+'233').then(data => {
+      console.log(data)
+    })
+    .catch(err => console.log('err-----', err))
   }
 
   handleFilterChange (event, key) {

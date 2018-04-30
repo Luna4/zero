@@ -44,8 +44,8 @@ const moduleConfig = {
       test: /\.js$/,
       exclude: /node_modules/,
       use: [
-        { loader: 'babel-loader' },
-        { loader: 'eslint-loader' }
+        { loader: 'babel-loader' }
+        // { loader: 'eslint-loader' }
       ]
     },
     {
