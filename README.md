@@ -6,7 +6,7 @@
 ```
 yarn install
 
-npm run start
+yarn start
 
 ```
 open in browser **http://localhost:8081/**
